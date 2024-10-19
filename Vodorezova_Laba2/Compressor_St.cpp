@@ -1,14 +1,6 @@
 #include "Compressor_St.h"
 #include <iostream>
 
-//class Compressor_St {
-//private:
-  //  std::string name;
-   // int workshopCount;
-  //  int workshopsInOperation;
-   // int efficiency;
-//public:
-    //Compressor_St(std::string name = ".", int workshopCount = 0, int workshopsInOperation = 0, int efficiency = 0) {};
     void Compressor_St::setName(std::string & n) {
         name = n;
     }
@@ -39,7 +31,7 @@
             std::cout << "There is no compressor station. Perhaps you entered the data incorrectly or did not make it. Try again." << std::endl;
         }
         else {
-            std::cout << "Compressor Station:" << name << ", Workshops: " << workshopCount << ", In operation: " << workshopsInOperation << ", Efficiency: " << efficiency << std::endl;
+            std::cout << "Compressor Station: " << name << ", Workshops: " << workshopCount << ", In operation: " << workshopsInOperation << ", Efficiency: " << efficiency << std::endl;
         }
     }
     // Function for changing the state of the workshop
@@ -78,4 +70,4 @@
         }
     }
 
-//};
+

@@ -1,0 +1,171 @@
+Added pipe with ID 1
+Added pipe with ID 2
+Added pipe with ID 1
+Added pipe with ID 2
+Added pipe with ID 1
+Added pipe with ID 2
+Added compressor station with ID 1
+Added pipe with ID 1
+Added pipe with ID 2
+Added compressor station with ID 1
+Added compressor station with ID 2
+Edited pipe with ID 2
+Added pipe with ID 1
+Added compressor station with ID 1
+Added pipe with ID 2
+Delited pipe with ID 2
+Added pipe with ID 1
+Added pipe with ID 2
+Added pipe with ID 3
+Edited pipe with ID 1
+Edited pipe with ID 2
+Edited pipe with ID 3
+Added pipe with ID 1
+Added pipe with ID 2
+Added pipe with ID 3
+Edited pipe with ID 2
+Edited pipe with ID 3
+Added pipe with ID 1
+Added pipe with ID 2
+Added pipe with ID 1
+Added pipe with ID 2
+Added pipe with ID 1
+Added pipe with ID 2
+Added pipe with ID 3
+Added pipe with ID 4
+Delited pipe with ID 3
+Added pipe with ID 5
+Edited pipe with ID 2
+Added pipe with ID 1
+Added pipe with ID 2
+Added pipe with ID 3
+Edited pipe with ID 1
+Edited pipe with ID 2
+Edited pipe with ID 3
+Delited pipe with ID 1
+Delited pipe with ID 2
+Delited pipe with ID 3
+Edited pipe with ID 1
+Edited pipe with ID 2
+Edited pipe with ID 3
+Added pipe with ID 1
+Added pipe with ID 2
+Edited pipe with ID 1
+Edited pipe with ID 2
+Delited pipe with ID 1
+Delited pipe with ID 2
+Edited pipe with ID 1
+Edited pipe with ID 2
+Added pipe with ID 1
+Added pipe with ID 2
+Added pipe with ID 1
+Added pipe with ID 2
+Delited pipe with ID 1
+Delited pipe with ID 2
+Edited pipe with ID 1
+Edited pipe with ID 2
+Added pipe with ID 1
+Delited pipe with ID 1
+Edited pipe with ID 1
+Added pipe with ID 1
+Added pipe with ID 2
+Delited pipe with ID 1
+Delited pipe with ID 2
+Added pipe with ID 1
+Added pipe with ID 2
+Edited pipe with ID 1
+Edited pipe with ID 2
+Added pipe with ID 1
+Added pipe with ID 2
+Added compressor station with ID 1
+Delited pipe with ID 1
+Batch delited all pipes.
+Added compressor station with ID 1
+Added compressor station with ID 2
+Added compressor station with ID 1
+Added compressor station with ID 2
+Added compressor station with ID 1
+Added compressor station with ID 1
+Added compressor station with ID 1
+Added compressor station with ID 2
+Added compressor station with ID 3
+Edited Compressor station with ID 1
+Edited Compressor station with ID 2
+Edited Compressor station with ID 3
+Delited station with ID 1
+Delited station with ID 2
+Delited station with ID 3
+Added pipe with ID 1
+Added pipe with ID 2
+Added pipe with ID 3
+Saved to file: PolinaLaba22
+Saved to file: PolinaLaba22
+Delited pipe with ID 1
+Delited pipe with ID 2
+Delited pipe with ID 3
+Added pipe with ID 1
+Added compressor station with ID 1
+Added pipe with ID 2
+Saved to file: Voda.txt
+Saved to file: Voda.txt
+Delited pipe with ID 1
+Delited pipe with ID 2
+Edited station with ID 1
+Loaded from file: Voda.txt
+Loaded from file: Voda.txt
+Added pipe with ID 1
+Added pipe with ID 2
+Added compressor station with ID 1
+Saved to file: Voda.txt
+Saved to file: Voda.txt
+Added pipe with ID 1
+Added pipe with ID 2
+Added compressor station with ID 1
+Saved to file: Voda.txt
+Saved to file: Voda.txt
+Added pipe with ID 1
+Saved to file: Voda.txt
+Saved to file: Voda.txt
+Delited pipe with ID 1
+Added pipe with ID 1
+Saved to file: Voda.txt
+Saved to file: Voda.txt
+Delited pipe with ID 1
+Added pipe with ID 1
+Saved to file: Œé¢äî¥ç¥
+Saved to file: Œé¢äî¥ç¥
+Delited pipe with ID 1
+Loaded from file: Œé¢äî¥ç¥
+Added compressor station with ID 1
+Added pipe with ID 1
+Saved to file: Œé¢äî¥ç¥
+Saved to file: Œé¢äî¥ç¥
+Added pipe with ID 1
+Saved to file: Voda.txt
+Saved to file: Voda.txt
+Delited pipe with ID 1
+Loaded from file: Voda.txt
+Added pipe with ID 1
+Saved to file: Voda.txt
+Saved to file: Voda.txt
+Added pipe with ID 1
+Saved to file: Voda.txt
+Saved to file: Voda.txt
+Delited pipe with ID 1
+Loaded from file: Voda.txt
+Added pipe with ID 1
+Added pipe with ID 1
+Saved to file: Voda.txt
+Saved to file: Voda.txt
+Delited pipe with ID 1
+Loaded from file: Voda.txt
+Added pipe with ID 2
+Added compressor station with ID 1
+Saved to file: Voda.txt
+Saved to file: Voda.txt
+Delited pipe with ID 1
+Edited station with ID 1
+Delited pipe with ID 2
+Loaded from file: Voda.txt
+Added pipe with ID 1
+Added compressor station with ID 1

@@ -1,14 +1,7 @@
 #include "Cpipes.h"
 #include <iostream>
 
-//class Cpipes {
-//private:
-//    std::string name; // Pipe name (kilometer mark)
-//    int length; // Pipe length
-//    int diameter; // Pipe diameter
-//    bool isUnderRepair;// "under repair" sign
-//public:
-    //Cpipes(std::string name = ".", int length = 0, int diameter = 0, bool isUnderRepair = 0) {};
+
     void Cpipes::setName(std::string & n) {
         name = n;
     }
@@ -56,4 +49,3 @@
         }
     }
 
-//};

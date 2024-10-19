@@ -10,7 +10,15 @@ using namespace std;
 
 void logAction(const string& action) {
     ofstream logFile("log.txt", ios::app);
-    logFile << action << endl;
+    if (logFile.is_open()) {
+        time_t now = time(0);
+        char* dt = ctime(&now);
+        logFile << action << " - " << dt << endl;
+    }
+    else {
+        cerr << "The log file could not be opened." << endl;
+    }
+    logFile.close();
 }
 
 // Function for reading pipe data
@@ -51,14 +59,19 @@ void readPipe(map<int, Cpipes>& pipes) {
         }
     }
     int id = pipes.empty() ? 1 : (pipes.rbegin()->first + 1);
-    pipes[id] = p;
+    pipes.emplace(id, p);
     logAction("Added pipe with ID " + to_string(id));
 }
 
 void displayAllPipes(map<int, Cpipes>& pipes) {
-    for (auto&  p : pipes) {
-        cout << "ID: " << p.first << endl;
-        p.second.display();
+    if (size(pipes) == 0) {
+        cout << "Pipes are not found." << endl;
+    }
+    else {
+        for (auto& p : pipes) {
+            cout << "ID: " << p.first << endl;
+            p.second.display();
+        }
     }
 }
 void delitepipes(map<int, Cpipes>& pipes) {
@@ -70,7 +83,7 @@ void delitepipes(map<int, Cpipes>& pipes) {
         logAction("Delited pipe with ID " + to_string(id));
     }
     else {
-        cout << "Pipe not found." << endl;
+        cout << "Pipe is not found." << endl;
     }
 }
 
@@ -83,7 +96,7 @@ void editPipe(map<int, Cpipes>& pipes) {
         logAction("Edited pipe with ID " + to_string(id));
     }
     else {
-        cout << "Pipe not found." << endl;
+        cout << "Pipe is not found." << endl;
     }
 }
 
@@ -99,12 +112,20 @@ void batchPipes(map<int, Cpipes>& pipes) {
     if (editAll) {
         switch (choice) {
         case 1:
+            if (size(pipes) == 0) {
+                cout << "Pipes are not found" << endl;
+                break;
+            }
             for (auto& pipe : pipes) {
                 pipes.erase(pipe.first);
             }
             logAction("Batch delited all pipes.");
             break;
         case 2:
+            if (size(pipes) == 0) {
+                cout << "Pipes are not found" << endl;
+                break;
+            }
             for (auto& pipe : pipes) {
                 pipe.second.editRepairStatus();
             }
@@ -183,18 +204,18 @@ void readst(map<int, Compressor_St>& stations) {
         else {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Invalid input. Please enter an integer that is positive and greater than zero. " << endl;
+            cout << "Invalid input. Please enter an integer that is positive number greater than zero and less than the number of workstations. " << endl;
         }
     }
     if (workshopCount == 0) {
         efficiency = 0;
     }
     else {
-        efficiency = 100 * (workshopCount - workshopsInOperation) / workshopCount;
+        efficiency = (100 * workshopsInOperation) / workshopCount;
     }
     st.setefficiency(efficiency);
     int id = stations.empty() ? 1 : (stations.rbegin()->first + 1);
-    stations[id] = st;
+    stations.emplace(id,st);
     logAction("Added compressor station with ID " + to_string(id));
 }
 
@@ -204,16 +225,21 @@ void delitest(map<int, Compressor_St>& stations) {
     cin >> id;
     if (stations.find(id) != stations.end()) {
         stations.erase(id);
-        logAction("Edited pipe with ID " + to_string(id));
+        logAction("Edited station with ID " + to_string(id));
     }
     else {
-        cout << "Station not found." << endl;
+        cout << "Station is not found." << endl;
     }
 }
 void displayAllStations( map<int, Compressor_St>& stations) {
-    for ( auto&  cs : stations) {
-        cout << "ID: " << cs.first << " ";
-        cs.second.displayst();
+    if(size(stations) == 0){
+        cout << "Compressor stations are not found." << endl;
+    }
+    else {
+        for (auto& cs : stations) {
+            cout << "ID: " << cs.first << endl;
+            cs.second.displayst();
+        }
     }
 }
 
@@ -226,7 +252,7 @@ void editStation(map<int, Compressor_St>& stations) {
         logAction("Edited compressor station with ID " + to_string(id));
     }
     else {
-        cout << "Station not found." << endl;
+        cout << "Station is not found." << endl;
     }
 }
 
@@ -234,6 +260,8 @@ void searchPipes( map<int, Cpipes>& pipes) {
     string query;
     bool inRepair;
     int choice;
+    int ch;
+    vector<int> ids;
     cout << "1.Search by pipe name" << endl;
     cout << "2.Search by repair status" << endl;
     cin >> choice;
@@ -242,12 +270,37 @@ void searchPipes( map<int, Cpipes>& pipes) {
         cout << "Enter pipe name to search: ";
         cin >> ws;
         getline(cin, query);
-        for ( auto& p : pipes) {
+        for (auto& p : pipes) {
             if (p.second.getName().find(query) != string::npos) {
                 cout << "ID: " << p.first << " ";
                 p.second.display();
+                ids.push_back(p.first);
             }
         }
+        if (size(ids) == 0) {
+            cout << "Pipes are not found" << endl;
+            break;
+         }
+        cout << "1.Delite" << endl;
+        cout << "2.Change" << endl;
+        cin >> ch;
+        switch (ch) {
+        case 1: 
+            for (int idd : ids) {
+                pipes.erase(idd);
+                logAction("Delited pipe with ID " + to_string(idd));
+            }
+            break;
+        case 2:
+            for (int idd : ids) {
+                pipes[idd].editRepairStatus();
+                logAction("Edited pipe with ID " + to_string(idd));
+            }
+            break;
+        default:
+            cout << "Invalid choice! Try again." << endl;
+            break;
+         }
         break;
     case 2:
         cout << "Filter by repair status (1 for yes, 0 for no): ";
@@ -256,7 +309,32 @@ void searchPipes( map<int, Cpipes>& pipes) {
             if (p.second.getRepairStatus() == inRepair) {
                 cout << "ID: " << p.first << " ";
                 p.second.display();
+                ids.push_back(p.first);
             }
+        }
+        if (size(ids) == 0) {
+            cout << "Pipes are not found" << endl;
+            break;
+        }
+        cout << "1.Delite" << endl;
+        cout << "2.Change" << endl;
+        cin >> ch;
+        switch (ch) {
+        case 1:
+            for (int idd: ids) {
+                pipes.erase(idd);
+                logAction("Delited pipe with ID " + to_string(idd));
+            }
+            break;
+        case 2:
+            for (int idd : ids) {
+                pipes[idd].editRepairStatus();
+                logAction("Edited pipe with ID " + to_string(idd));
+            }
+            break;
+        default:
+            cout << "Invalid choice! Try again." << endl;
+            break;
         }
         break;
     default:
@@ -266,13 +344,14 @@ void searchPipes( map<int, Cpipes>& pipes) {
 }
 void searchStations( map<int, Compressor_St>& stations) {
     string query;
+    vector<int> ids;
     double maxIdlePercentage;
     int choice;
     int percent;
+    int ch;
     cout << "1.Search by compressor station name" << endl;
     cout << "2.Search by efficienty" << endl;
     cin >> choice;
-    cin >> percent;
     switch (choice) {
     case 1:
         cout << "Enter compressor station name to search: ";
@@ -282,7 +361,32 @@ void searchStations( map<int, Compressor_St>& stations) {
             if (cs.second.getName().find(query) != string::npos) {
                 cout << "ID: " << cs.first << " ";
                 cs.second.displayst();
+                ids.push_back(cs.first);
             }
+        }
+        if (size(ids) == 0) {
+            cout << "Compressor stations are not found." << endl;
+            break;
+        }
+        cout << "1.Delite" << endl;
+        cout << "2.Change" << endl;
+        cin >> ch;
+        switch (ch) {
+        case 1:
+            for (int idd : ids) {
+                stations.erase(idd);
+                logAction("Delited station with ID " + to_string(idd));
+            }
+            break;
+        case 2:
+            for (int idd : ids) {
+                stations[idd].toggleWorkshopStatus();
+                logAction("Edited Compressor station with ID " + to_string(idd));
+            }
+            break;
+        default:
+            cout << "Invalid choice! Try again." << endl;
+            break;
         }
         break;
     case 2:
@@ -297,7 +401,32 @@ void searchStations( map<int, Compressor_St>& stations) {
                 if (cs.second.getefficiency() <= maxIdlePercentage) {
                     cout << "ID: " << cs.first << " ";
                     cs.second.displayst();
+                    ids.push_back(cs.first);
                 }
+            }
+            if (size(ids) == 0) {
+                cout << "Compressor stations are not found" << endl;
+                break;
+            }
+            cout << "1.Delite" << endl;
+            cout << "2.Change" << endl;
+            cin >> ch;
+            switch (ch) {
+            case 1:
+                for (int idd : ids) {
+                    stations.erase(idd);
+                    logAction("Delited station with ID " + to_string(idd));
+                }
+                break;
+            case 2:
+                for (int idd : ids) {
+                    stations[idd].toggleWorkshopStatus();
+                    logAction("Edited Costation with ID " + to_string(idd));
+                }
+                break;
+            default:
+                cout << "Invalid choice! Try again." << endl;
+                break;
             }
             break;
         case 2:
@@ -305,7 +434,32 @@ void searchStations( map<int, Compressor_St>& stations) {
                 if (cs.second.getefficiency() >= maxIdlePercentage) {
                     cout << "ID: " << cs.first << " ";
                     cs.second.displayst();
+                    ids.push_back(cs.first);
                 }
+            }
+            if (size(ids) == 0) {
+                cout << "Compressor stations are not found" << endl;
+                break;
+            }
+            cout << "1.Delite" << endl;
+            cout << "2.Change" << endl;
+            cin >> ch;
+            switch (ch) {
+            case 1:
+                for (int idd : ids) {
+                    stations.erase(idd);
+                    logAction("Delited station with ID " + to_string(idd));
+                }
+                break;
+            case 2:
+                for (int idd : ids) {
+                    stations[idd].toggleWorkshopStatus();
+                    logAction("Edited Compressor station with ID " + to_string(idd));
+                }
+                break;
+            default:
+                cout << "Invalid choice! Try again." << endl;
+                break;
             }
             break;
         default:
@@ -319,35 +473,96 @@ void searchStations( map<int, Compressor_St>& stations) {
     }
 }
 
-// Сохранение данных объектов в файл
-template<typename T>
-void saveToFile(const map<int, T>& objects, const string& filename) {
+
+
+void saveToFilepipes(map<int, Cpipes>& pipes, string& filename) {
     ofstream file(filename);
     if (file.is_open()) {
-        for (const auto& [id, obj] : objects) {
-            file << id << endl;
-            file << obj.getName() << endl;
+        for ( auto&  p: pipes) {
+            file << "Pipe: " << p.first << "; Name: " << p.second.getName() << "; Length: " << p.second.getLength() << "; Diameter: " << p.second.getDiameter() << "; Under repair: " << p.second.getRepairStatus() << endl;
         }
+        logAction("Saved to file: " + filename);
+    }
+    else{
+        cerr << "Unable to open file for  saving" << endl;
+        logAction("Not saved to file: " + filename);
     }
     file.close();
-    logAction("Saved to file: " + filename);
+}
+void saveToFilest(map<int, Compressor_St>& stations, string& filename) {
+    ofstream file(filename, ios::app);
+    if (file.is_open()) {
+        for (auto& st : stations) {
+            file << "Compressor_Station: " <<  st.first <<"; Namest: " << st.second.getName() << "; Workshops: " << st.second.getWorkshops() << "; ActiveWorkshops: " << st.second.getActiveWorkshops() << "; Efficiency: " << st.second.getefficiency() << endl;
+        }
+        logAction("Saved to file: " + filename);
+    }
+    else {
+        cerr << "Unable to open file for  saving" << endl;
+        logAction("Not saved to file: " + filename);
+    }
+    file.close();
 }
 
-// Загрузка данных объектов из файла
-template<typename T>
-void loadFromFile(map<int, T>& objects, const string& filename) {
+void loadFromFile(map<int, Cpipes>& pipes, map<int, Compressor_St>& stations, string& filename) {
     ifstream file(filename);
+    Cpipes p;
+    Compressor_St st;
+    string name;
+    int length;
+    int diameter;
+    int workshops;
+    int activew;
+    int efficiency;
+    int status;
     if (file.is_open()) {
-        int id;
-        T obj;
-        string name;
-        file >> id;
-        file >> name;
-        obj.setName(name);
-        objects[id] = obj;
+        while (!file.eof()) {
+            string line;
+            while (getline(file, line)) {
+                if (line.substr(0, 18) == "") {
+                    size_t pos1 = line.find(';');
+                    size_t pos2 = line.find(';', pos1 + 1);
+                    size_t pos3 = line.find(';', pos2 + 1);
+                    size_t pos4 = line.find(';', pos3 + 1);
+                    name = line.substr(pos1 + 8, pos2 - pos1 - 8);
+                    length = stoi(line.substr(pos2 + 10, pos3 - pos2 - 10));
+                    diameter = stoi(line.substr(pos3 + 12, pos4 - pos3 - 12));
+                    status = stoi(line.substr(pos4 + 16, line.length() - pos4 - 16));
+                    p.setName(name);
+                    p.setLength(length);
+                    p.setDiameter(diameter);
+                    pipes.emplace(stoi(line.substr(6, pos1 - 6)), p);
+                }
+                else {
+                    if (line.substr(0, 4) == "Compressor_Station") {
+                        size_t pos1 = line.find(';');
+                        size_t pos2 = line.find(';', pos1 + 1);
+                        size_t pos3 = line.find(';', pos2 + 1);
+                        size_t pos4 = line.find(';', pos3 + 1);
+                        name = line.substr(pos1 + 10, pos2 - pos1 - 10);
+                        workshops = stoi(line.substr(pos2 + 13, pos3 - pos2 - 13));
+                        activew = stoi(line.substr(pos3 + 19, pos4 - pos3 - 19));
+                        efficiency = stoi(line.substr(pos4 + 14, line.length() - pos4 - 14));
+                        st.setName(name);
+                        st.setWorkshops(workshops);
+                        st.setActiveWorkshops(activew);
+                        st.setefficiency(efficiency);
+                        stations.emplace(stoi(line.substr(20, pos1 - 20)), st);
+                    }
+                    else {
+                        cerr << "Error reading line from file." << endl;
+                        logAction("Error reading line from file: " + filename);
+                    }
+                }
+            }
+        }
+        logAction("Loaded from file: " + filename);
+    }
+    else {
+        cerr << "Could not open file." << endl;
+        logAction("Could not open file: " + filename);
     }
     file.close();
-    logAction("Loaded from file: " + filename);
 }
 
 // Main function
@@ -357,6 +572,7 @@ int main() {
     int choice; // Variable for selecting an action
 
     while (true) {
+        cout << "---------------------------------------------------------" << endl;
         cout << "Menu: " << endl;
         cout << "1. Add Pipe" << endl;
         cout << "2. Add Compressor Station" << endl;
@@ -371,8 +587,10 @@ int main() {
         cout << "11. Save to file" << endl;
         cout << "12. Load from file" << endl;
         cout << "0. Exit" << endl;
+        cout << "---------------------------------------------------------" << endl;
         cin >> choice;
-        if (cin.fail() || choice < 0 || choice > 11 || cin.peek() != '\n') {
+        cout << "---------------------------------------------------------" << endl;
+        if (cin.fail() || choice < 0 || choice > 12 || cin.peek() != '\n') {
             cout << "Invalid input. Please enter an integer. " << endl;
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -421,16 +639,15 @@ int main() {
             string filename;
             cout << "Enter filename to save: ";
             cin >> filename;
-            saveToFile(pipes, filename + "_pipes.txt");
-            saveToFile(stations, filename + "_stations.txt");
+            saveToFilepipes(pipes, filename);
+            saveToFilest(stations, filename);
             break;
         }
         case 12: {
             string filename;
             cout << "Enter filename to load: ";
             cin >> filename;
-            loadFromFile(pipes, filename + "_pipes.txt");
-            loadFromFile(stations, filename + "_stations.txt");
+            loadFromFile(pipes, stations, filename);
             break;
         }
         case 0: {
@@ -439,7 +656,7 @@ int main() {
         default: {
             cout << "Invalid choice!. Try again." << endl; // Incorrect choice
         }
-               return 0;
+            return 0;
         }
     }
 }

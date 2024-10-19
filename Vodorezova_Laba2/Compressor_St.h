@@ -12,11 +12,10 @@ public:
     void setWorkshops(int& w);
     void setActiveWorkshops(int& aw);
     void setefficiency(int& ef);
-
-    std::string getName(){ return name; }
-    int getWorkshops() { return workshopCount; }
-    int getActiveWorkshops() { return workshopsInOperation; }
-    int getefficiency() { return efficiency; }
+    std::string getName();
+    int getWorkshops();
+    int getActiveWorkshops();
+    int getefficiency();
     void displayst() const;
     void toggleWorkshopStatus();
 };

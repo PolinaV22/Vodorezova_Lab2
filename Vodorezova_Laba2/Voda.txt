@@ -1,0 +1,3 @@
+Pipe: 1; Name: Polina; Length: 123; Diameter: 12; Under repair: 0
+Pipe: 2; Name: Oil and Gas; Length: 234; Diameter: 13; Under repair: 0
+Compressor_Station: 1; Namest: Privet; Workshops: 654; ActiveWorkshops: 23; Efficiency: 3

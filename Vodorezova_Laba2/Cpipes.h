@@ -3,20 +3,19 @@
 class Cpipes
 {
 private:
-    std::string name = { "." }; // Pipe name (kilometer mark)
-    int length = { 0 }; // Pipe length
-    int diameter = { 0 }; // Pipe diameter
-    bool isUnderRepair = { 0 };// "under repair" sign
-    int id;
+    std::string name = { "." }; 
+    int length = { 0 }; 
+    int diameter = { 0 }; 
+    bool isUnderRepair = { 0 };
 public:
     void setName(std::string& n);
     void setLength(int& l);
     void setDiameter(int& d);
     void setRepairStatus(bool& status);
-    std::string getName() { return name; }
-    int getLength() { return length; }
-    int getDiameter(){ return diameter; }
-    bool getRepairStatus() { return isUnderRepair; }
+    std::string getName();
+    int getLength();
+    int getDiameter();
+    bool getRepairStatus();
     void display() const;
     void editRepairStatus();
 };
