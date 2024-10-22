@@ -169,3 +169,116 @@ Delited pipe with ID 2
 Loaded from file: Voda.txt
 Added pipe with ID 1
 Added compressor station with ID 1
+Added pipe with ID 1 - 
+Added pipe with ID 1 - 
+Added pipe with ID 2 - 
+Added pipe with ID 3 - 
+Added pipe with ID 4 - 
+Added compressor station with ID 1 - 
+Added compressor station with ID 2 - 
+Added compressor station with ID 3 - 
+Batch edited all pipes. - 
+Edited pipe with ID 1 - 
+Edited pipe with ID 2 - 
+Added compressor station with ID 1 - 
+Added compressor station with ID 2 - 
+Added compressor station with ID 3 - 
+Added pipe with ID 1 - 
+Added pipe with ID 2 - 
+Delited station with ID 1 - 
+Delited station with ID 2 - 
+Delited station with ID 3 - 
+Delited pipe with ID 1 - 
+Delited pipe with ID 2 - 
+Added pipe with ID 1 - 
+Added pipe with ID 2 - 
+Added pipe with ID 3 - 
+Added compressor station with ID 1 - 
+Added compressor station with ID 2 - 
+Added compressor station with ID 3 - 
+Batch edited all pipes. - 
+Edited Compressor station with ID 1 - 
+Edited Compressor station with ID 2 - 
+Edited Compressor station with ID 3 - 
+Delited station with ID 1 - 
+Delited station with ID 2 - 
+Delited station with ID 3 - 
+Added compressor station with ID 1 - 
+Added compressor station with ID 2 - 
+Added compressor station with ID 3 - 
+Added pipe with ID 1 - 
+Added pipe with ID 2 - 
+Added pipe with ID 1 - 
+Added pipe with ID 2 - 
+Added pipe with ID 3 - 
+Added compressor station with ID 1 - 
+Added compressor station with ID 2 - 
+Added compressor station with ID 3 - 
+Edited pipe with ID 3 - 
+Edited pipe with ID 3 - 
+Edited compressor station with ID 2 - 
+Edited compressor station with ID 2 - 
+Batch edited all pipes. - 
+Delited pipe with ID 1 - 
+Delited pipe with ID 2 - 
+Added pipe with ID 4 - 
+Edited Costation with ID 1 - 
+Edited Costation with ID 3 - 
+Delited station with ID 2 - 
+Saved to file: Voda.txt - 
+Saved to file: Voda.txt - 
+Error reading line from file: Voda.txt - 
+Error reading line from file: Voda.txt - 
+Error reading line from file: Voda.txt - 
+Error reading line from file: Voda.txt - 
+Loaded from file: Voda.txt - 
+Error reading line from file: Voda.txt - 
+Error reading line from file: Voda.txt - 
+Error reading line from file: Voda.txt - 
+Error reading line from file: Voda.txt - 
+Loaded from file: Voda.txt - 
+Error reading line from file: Voda.txt - 
+Error reading line from file: Voda.txt - 
+Error reading line from file: Voda.txt - 
+Error reading line from file: Voda.txt - 
+Loaded from file: Voda.txt - 
+Added pipe with ID 1 - 
+Saved to file: Voda.txt - 
+Saved to file: Voda.txt - 
+Delited pipe with ID 1 - 
+Error reading line from file: Voda.txt - 
+Loaded from file: Voda.txt - 
+Loaded from file: Voda.txt - 
+Added compressor station with ID 1 - 
+Added compressor station with ID 2 - 
+Added compressor station with ID 1 - 
+Added compressor station with ID 2 - 
+Edited Compressor station with ID 1 - 
+Edited Compressor station with ID 2 - 
+Added compressor station with ID 1 - 
+Added compressor station with ID 2 - 
+Edited compressor station with ID 2 - 
+Edited compressor station with ID 2 - 
+Added compressor station with ID 1 - 
+Edited compressor station with ID 1 - 
+Edited compressor station with ID 1 - 
+Added compressor station with ID 1 - 
+Edited compressor station with ID 1 - 
+Edited compressor station with ID 1 - 
+Added pipe with ID 1 - 
+Added pipe with ID 2 - 
+Added pipe with ID 3 - 
+Edited pipe with ID 2 - 
+Edited pipe with ID 1 - 
+Edited pipe with ID 2 - 
+Edited pipe with ID 3 - 
+Added compressor station with ID 1 - 
+Added compressor station with ID 2 - 
+Added pipe with ID 1 - 
+Added pipe with ID 2 - 
+Batch edited all pipes. - 
+Added pipe with ID 1 - 
+Added pipe with ID 2 - 
+Added compressor station with ID 1 - 
+Added compressor station with ID 2 - 
+Added compressor station with ID 3 - 

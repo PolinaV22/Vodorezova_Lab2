@@ -129,11 +129,13 @@
   <ItemGroup>
     <ClCompile Include="Compressor_St.cpp" />
     <ClCompile Include="Cpipes.cpp" />
+    <ClCompile Include="functions.cpp" />
     <ClCompile Include="Pipe2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Compressor_St.h" />
     <ClInclude Include="Cpipes.h" />
+    <ClInclude Include="functions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

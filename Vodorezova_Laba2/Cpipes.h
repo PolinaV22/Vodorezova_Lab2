@@ -1,5 +1,12 @@
 #pragma once
 #include <string>
+#include <map>
+#include <iostream>
+#include "Cpipes.h"
+#include "Compressor_St.h"
+#include <vector>
+#include <fstream>
+
 class Cpipes
 {
 private:
