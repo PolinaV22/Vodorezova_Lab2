@@ -187,6 +187,8 @@ int main() {
             loadFromFile(pipes, stations, filename);
             break;
         }
+        case 0:
+            return 0;
         default: {
             cout << "Invalid choice!. Try again." << endl; // Incorrect choice
         }
